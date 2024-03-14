@@ -239,7 +239,10 @@
           
           <div class="bottom d-flex">
             <i class="fa-regular fa-face-smile"></i>
-            <input type="text" placeholder="Scrivi un messaggio">
+            <!-- 3 -->
+            <input type="text" placeholder="Scrivi un messaggio"
+            v-model="newMsg"
+            @keyup.enter="addNewMsg">
             <i class="fa-solid fa-microphone"></i>
           </div>
         </div>

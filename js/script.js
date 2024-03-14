@@ -172,6 +172,7 @@ createApp({
       // in questo caso 0 si riferisce all'indice del primo contatto dell'array
       // devo far si che il mio primo utente sia attivo, quindi il primo indicie del primo utente è uguale ad utenteAttivo?
       utenteAttivo: 0,
+      newMsg: '',
       
     }
   },
@@ -182,8 +183,32 @@ createApp({
       this.utenteAttivo = index;
       console.log('cliccato')
     },
-    chatAttiva:{
-      
+    // 3
+    addNewMsg(event){
+      console.log('aggiungi');
+      // 3
+      // Quando si utilizza JavaScript per gestire gli eventi della tastiera, si può controllare direttamente se event.key è uguale a 'Enter' senza bisogno di dichiarare alcuna costante
+      if (event.key === 'Enter') {
+        // devo aggiungere il nuovo messaggio alla lista dei messaggi del contatto attivo
+        this.contacts[this.utenteAttivo].messages.push({
+          // imposta la data e l'ora corrente
+          date: new Date().toLocaleString(),
+          message: this.newMsg,
+          status: 'sent'
+        });
+        // reset: cancella il testo dall'input dopo l'invio
+        this.newMsg = '';
+      }
+
+      // invia "OK" dopo 1 secondo
+      setTimeout(() => {
+        // aggiungi un nuovo messaggio di risposta "OK"
+        this.contacts[this.utenteAttivo].messages.push({
+          date: new Date().toLocaleString(),
+          message: 'OK',
+          status: 'received'
+        });
+      }, 1000);
     }
   }
 }).mount('#app');
