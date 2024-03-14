@@ -2,7 +2,10 @@ const { createApp } = Vue;
 
 createApp({
   data(){
+    // è la zona in cui definisco lo stato di tutte le cose
+    
     return{
+      
       contacts: [
         {
             name: 'Michele',
@@ -174,9 +177,13 @@ createApp({
   },
   // 2
   methods:{
+    // gli do il parametro ma passo index come parametro perchè index è in HTML  enon è dentro i parametri che ho
     attivareUtente(index){
       this.utenteAttivo = index;
       console.log('cliccato')
+    },
+    chatAttiva:{
+      
     }
   }
 }).mount('#app');
