@@ -63,16 +63,18 @@
             <!-- CONTATTI -->
 
             <!-- 1 v-for -->
+            <!-- 2 -->
             <div 
             v-for="(contact, index) in contacts"
-            class="info-contacts d-flex">
+            class="info-contacts d-flex"
+            @click="attivareUtente(index)">
             <!-- sto dicendo a Vue di cercare le immagini nella cartella chiamata "img", + seguito dal numero dell'avatar (determinato dall'indice del ciclo v-for incrementato di 1 + l'estensione ".jpg" -->
               <img :src="'img/avatar_' + (index + 1) + '.jpg'" alt="">
               <div class="name-contacts d-none d-flex">
                 <h4>{{contact.name}}</h4>
-                <p>{{contact.messages[1].message}}</p>
+                <p>{{contact.messages[contact.messages.length-1].message}}</p>
               </div>
-              <p class="time d-none">{{contact.messages[1].date}}</p>
+              <p class="time d-none">{{contact.messages[contact.messages.length-1].date}}</p>
             </div>
 
             <!-- <div class="info-contacts d-flex">
@@ -208,7 +210,7 @@
                     </ul>
                   </div>
                 </div>
-                  <p class="write">Spedito Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe doloribus at magnam quibusdam dolore. Officiis, obcaecati odit odio omnis vel unde beatae eaque debitis animi, fuga voluptate impedit ratione! Nulla.</p>
+                  <p class="write">{{contacts[0].messages[0].message}}</p>
                   <p>16:13</p>
                </div>
             </div>

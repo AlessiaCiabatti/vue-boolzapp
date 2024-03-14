@@ -164,9 +164,19 @@ createApp({
                     status: 'received'
                 }
             ],
-        }
-      ]
+        },
+      ],
+      // in questo caso 0 si riferisce all'indice del primo contatto dell'array
+      // devo far si che il mio primo utente sia attivo, quindi il primo indicie del primo utente è uguale ad utenteAttivo?
+      utenteAttivo: 0,
       
+    }
+  },
+  // 2
+  methods:{
+    attivareUtente(index){
+      this.utenteAttivo = index;
+      console.log('cliccato')
     }
   }
 }).mount('#app');
