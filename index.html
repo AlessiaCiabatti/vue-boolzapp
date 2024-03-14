@@ -197,9 +197,14 @@
               </div>
             </div>
 
-          <div class="chat">
+            <!-- 2 
+              contacts[utenteAttivo].messages: Questo è l'array su cui stai iterando. contacts è un array di contatti, e utenteAttivo è una variabile o una proprietà che indica l'indice del contatto attivo.
+              Contacts[utenteAttivo].messages rappresenta l'array dei messaggi del contatto attivo. -->
+          <div class="chat"
+          v-for="(message, messageIndex) in contacts[utenteAttivo].messages">
             
-            <div class="right d-flex">
+            <div class="right d-flex"
+            v-if="message.status === 'sent'">
               <div class="sent sms-style">
                 <div class="options">
                   <i class="fa-solid fa-chevron-down"></i>
@@ -210,12 +215,13 @@
                     </ul>
                   </div>
                 </div>
-                  <p class="write">{{contacts[utenteAttivo].messages[0].message}}</p>
-                  <p>16:13</p>
+                  <p class="write">{{message.message}}</p>
+                  <p>{{ message.date }}</p>
                </div>
             </div>
             
-            <div class="received sms-style">
+            <div class="received sms-style"
+            v-if="message.status === 'received'">
               <div class="options">
                 <i class="fa-solid fa-chevron-down"></i>
                 <div class="hide d-flex">
@@ -225,8 +231,8 @@
                   </ul>
                 </div>
               </div>
-              <p class="write">Ricevuto Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt non esse facere illo cum. Veniam enim porro praesentium. Iste, nostrum perspiciatis soluta ea fuga nemo id excepturi inventore natus nisi.</p>
-              <p>16:15</p>
+              <p class="write">{{message.message}}</p>
+              <p>{{ message.date }}</p>
             </div>
           </div>
 
