@@ -177,7 +177,7 @@ createApp({
       contactToSearch: '',
       msgCancellato: '',
       toggleChevron: false,
-      messageIndex: null
+      optionsChevron: false,
     }
   },
   // 2
@@ -189,6 +189,7 @@ createApp({
     },
 
     toggleOptions() {
+        console.log('cliccato')
         this.optionsVisible = !this.optionsVisible;
       },
 
