@@ -173,6 +173,8 @@ createApp({
       // devo far si che il mio primo utente sia attivo, quindi il primo indicie del primo utente è uguale ad utenteAttivo?
       utenteAttivo: 0,
       newMsg: '',
+      //   4
+      contactToSearch: '',
       
     }
   },
@@ -210,5 +212,16 @@ createApp({
         });
       }, 1000);
     }
+  },
+
+// 4
+  computed:{
+    // sono dei metodi che devono avere un return
+    // NON accettano parametri
+    //  reagiscano al modificarsi di un dato in essa contenuto
+    ricercaUtenti(){
+        // filtro su contacts, il ciclo lo faccio sulla computed
+        return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.contactToSearch.toLowerCase()));
+    },
   }
 }).mount('#app');

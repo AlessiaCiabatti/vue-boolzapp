@@ -53,7 +53,9 @@
                         
           <div class="research d-none d-flex">
             <div class="white d-flex">
-              <input type="text" placeholder="Cerca o inizia una nuova chat">
+              <!-- 4 -->
+              <input type="text" placeholder="Cerca o inizia una nuova chat"
+              v-model="contactToSearch">
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
           </div>
@@ -65,7 +67,7 @@
             <!-- 1 v-for -->
             <!-- 2 -->
             <div 
-            v-for="(contact, index) in contacts"
+            v-for="(contact, index) in ricercaUtenti"
             class="info-contacts d-flex"
             @click="attivareUtente(index)">
             <!-- sto dicendo a Vue di cercare le immagini nella cartella chiamata "img", + seguito dal numero dell'avatar (determinato dall'indice del ciclo v-for incrementato di 1 + l'estensione ".jpg" -->
