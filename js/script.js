@@ -175,16 +175,32 @@ createApp({
       newMsg: '',
       //   4
       contactToSearch: '',
-      
+      msgCancellato: '',
+      toggleChevron: false,
+      messageIndex: null
     }
   },
   // 2
   methods:{
-    // gli do il parametro ma passo index come parametro perchè index è in HTML  enon è dentro i parametri che ho
+    // gli do il parametro ma passo index come parametro perchè index è in HTML e non è dentro i parametri che ho
     attivareUtente(index){
       this.utenteAttivo = index;
       console.log('cliccato')
     },
+
+    toggleOptions() {
+        this.optionsVisible = !this.optionsVisible;
+      },
+
+    // 5
+    cancellaMsg(messageIndex){
+        console.log('cliccato')
+        // splice, 1: elimina solo un solo elemento e restituisce l'array con gli elementi rimanenti
+        // prendo i messaggi dell'utente di contacts
+        this.contacts[this.utenteAttivo].messages.splice(messageIndex, 1);
+        this.msgCancellato = '';
+    },
+
     // 3
     addNewMsg(event){
       console.log('aggiungi');
@@ -223,5 +239,5 @@ createApp({
         // filtro su contacts, il ciclo lo faccio sulla computed
         return this.contacts.filter(contact => contact.name.toLowerCase().includes(this.contactToSearch.toLowerCase()));
     },
-  }
-}).mount('#app');
+  },
+}).mount('#app')

@@ -66,6 +66,7 @@
 
             <!-- 1 v-for -->
             <!-- 2 -->
+            <!-- 4 -->
             <div 
             v-for="(contact, index) in ricercaUtenti"
             class="info-contacts d-flex"
@@ -209,11 +210,12 @@
             v-if="message.status === 'sent'">
               <div class="sent sms-style">
                 <div class="options">
-                  <i class="fa-solid fa-chevron-down"></i>
+                  <i class="fa-solid fa-chevron-down"
+                  @click="toggleChevron" ></i>
                   <div class="hide d-flex">
                     <ul class="d-flex">
                       <li>Info messaggi</li>
-                      <li>Cancella messaggio</li>
+                      <li @click="cancellaMsg(messageIndex)">Cancella messaggio</li>
                     </ul>
                   </div>
                 </div>
@@ -229,7 +231,7 @@
                 <div class="hide d-flex">
                   <ul class="d-flex">
                     <li>Info messaggi</li>
-                    <li>Cancella messaggio</li>
+                    <li  @click="cancellaMsg(messageIndex)">Cancella messaggio</li>
                   </ul>
                 </div>
               </div>
