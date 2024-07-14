@@ -15,3 +15,5 @@ Vue-boolzapp
 
 5. Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
 
+<p align="center"><img src="img_project/img.png" width="800" alt="Laravel Logo"></p>
+

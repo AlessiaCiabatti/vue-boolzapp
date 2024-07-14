@@ -26,6 +26,11 @@ createApp({
                     date: '10/01/2020 16:15:22',
                     message: 'Tutto fatto!',
                     status: 'received'
+                },
+                {
+                    date: '10/01/2020 16:15:22',
+                    message: 'Tutto fatto!',
+                    status: 'received'
                 }
             ],
         },
@@ -200,6 +205,7 @@ createApp({
         // prendo i messaggi dell'utente di contacts
         this.contacts[this.utenteAttivo].messages.splice(messageIndex, 1);
         this.msgCancellato = '';
+        console.log(this.contacts[this.utenteAttivo].messages);
     },
 
     // 3
